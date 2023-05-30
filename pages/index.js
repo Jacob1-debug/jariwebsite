@@ -1,14 +1,18 @@
-import Layout from '@/components/Layout'
+import Layout from '@/components/Layout';
+import ProductItem from '@/components/ProductItem';
+import { data } from '../utils/data'; // Import data as a named export
 
 export default function Home() {
   return (
     <>
-     <Layout title="Home Page">
-      Home page
+      <Layout title="Home Page">
+        <div className='grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4'>
 
-     </Layout>
-      
-      {/* // <h1 className='text-3xl font-bold'> Jari-Africa</h1> */}
+          {data.products.map((product) => ( // Access the data array directly
+            <ProductItem product={product} key={product.slug}></ProductItem>
+          ))}
+        </div>
+      </Layout>
     </>
-  )
+  );
 }
